@@ -1,0 +1,41 @@
+<!--
+  Generated template for the TodoPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar primary>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Todo list</ion-title>
+    <ion-buttons end>
+      <button (click)="createTodo()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let todo of todos | async">
+      <ion-item>
+        {{todo.content}}
+      </ion-item>
+      <ion-item-options side="right">
+        <button (click)="editTodo(todo)">
+          <ion-icon name="create"></ion-icon>
+        </button>
+        <button danger (click)="removeTodo(todo.$key)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
